@@ -6,7 +6,7 @@ import { FaCheckCircle, FaExclamationCircle, FaSpinner } from "react-icons/fa";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState(null); // null, loading, success, error
   const [statusMessage, setStatusMessage] = useState("");
 
   const handleChange = (e) => {
@@ -26,57 +26,43 @@ export default function Contact() {
 
     setStatus("loading");
 
-    // Simulate message sending with a delay
-    // To enable real email sending, configure EmailJS:
-    // 1. Go to https://www.emailjs.com/
-    // 2. Create a free account and get your Service ID, Template ID, and Public Key
-    // 3. Replace the placeholder values below with your actual credentials
-    
-    setTimeout(async () => {
-      try {
-        // Option 1: Use EmailJS (uncomment and add your credentials)
-        /*
-        const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+    try {
+      // Using EmailJS - Install: npm install @emailjs/browser
+      // Initialize with your EmailJS credentials
+      const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          service_id: "service_example", // Replace with your service ID
+          template_id: "template_example", // Replace with your template ID
+          user_id: "user_example", // Replace with your public key
+          template_params: {
+            to_email: resumeData.email,
+            from_name: formData.name,
+            from_email: formData.email,
+            message: formData.message,
           },
-          body: JSON.stringify({
-            service_id: "YOUR_SERVICE_ID",
-            template_id: "YOUR_TEMPLATE_ID",
-            user_id: "YOUR_PUBLIC_KEY",
-            template_params: {
-              to_email: resumeData.email,
-              from_name: formData.name,
-              from_email: formData.email,
-              message: formData.message,
-            },
-          }),
-        });
-        */
+        }),
+      });
 
-        // Option 2: For now, simulate success
-        // Remove this code once you set up EmailJS above
+      if (response.ok) {
         setStatus("success");
-        setStatusMessage("Message saved! I'll get back to you soon 📧");
+        setStatusMessage("Message sent successfully! 🎉");
         setFormData({ name: "", email: "", message: "" });
-        
-        // Log the message for now
-        console.log("Message received:", {
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          timestamp: new Date().toISOString(),
-        });
-        
         setTimeout(() => setStatus(null), 4000);
-      } catch (error) {
-        console.error("Error sending message:", error);
+      } else {
         setStatus("error");
-        setStatusMessage("Network error. Please try again!");
+        setStatusMessage("Failed to send message. Please try again!");
         setTimeout(() => setStatus(null), 4000);
       }
-    }, 1500); // Simulate network delay
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setStatus("error");
+      setStatusMessage("Network error. Please try again!");
+      setTimeout(() => setStatus(null), 4000);
+    }
   };
 
   return (
@@ -97,6 +83,7 @@ export default function Contact() {
           <div className="p-6 rounded-3xl border border-white/10 bg-white/5">
             <h3 className="text-xl font-bold">Quick Message</h3>
             
+            {/* Status Messages */}
             {status === "success" && (
               <div className="mt-3 p-3 rounded-2xl bg-green-500/20 border border-green-500/50 flex items-center gap-2">
                 <FaCheckCircle className="text-green-400" />
