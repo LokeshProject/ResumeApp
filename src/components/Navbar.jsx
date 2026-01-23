@@ -16,7 +16,7 @@ export default function Navbar() {
         <div className="sticky top-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10">
             <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
                 <div className="font-extrabold tracking-tight">
-                    <span className="text-white">Lokesh</span>
+                    <span className="text-white">Ahtesham</span>
                     <span className="text-white/50">.dev</span>
                 </div>
 
@@ -38,14 +38,14 @@ export default function Navbar() {
                 </div>
 
                 <a
-                    href="/LokeshDasResumes.pdf"
-                    download="LokeshDas_Resume.pdf"
+                    href="/ahtecv.pdf"
+                    download="ahtecv..pdf"
                     className="px-4 py-2 rounded-xl bg-white text-black font-semibold hover:opacity-90 transition"
                 >
                     Download CV
                 </a>
                 <a
-                    href="/LokeshDasResumes.pdf"
+                    href="/ahtecv..pdf"
                     target="_blank"
                     rel="noreferrer"
                     className="px-4 py-2 rounded-xl bg-white text-black font-semibold hover:opacity-90 transition"

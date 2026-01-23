@@ -1,7 +1,7 @@
 import PageWrapper from "../components/PageWrapper";
 import { resumeData } from "../data/resumeData";
 import { motion } from "framer-motion";
-import profile from "../assets/lokesh.jpg";
+import profile from "../assets/ahte.jpg";
 
 export default function Home() {
   return (

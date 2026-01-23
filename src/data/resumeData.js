@@ -1,9 +1,9 @@
 export const resumeData = {
-  name: "Lokesh Das",
+  name: "Ahtesham Ahmad",
   role: "React JS & React Native Developer",
   location: "Bangalore, Karnataka, 560037",
-  email: "itslokeshdas@gmail.com",
-  phone: "6362807094",
+  email: "ahtesham.ahmad99@gmail.com",
+  phone: "8574053509",
   objective:
     "Seeking a full-time software development role where I can apply my expertise in mobile and web technologies to create impactful, user-centric digital solutions. Eager to join a forward-thinking team that values innovation, collaboration, and continuous learning.",
 
@@ -36,7 +36,7 @@ export const resumeData = {
       "Google Maps SDK",
       "Push Notifications",
     ],
-    backend: ["Node.js", "Express.js", "Core Java", "Spring Boot (basic)", "Hibernate (basic)", "REST APIs"],
+    backend: ["Node.js", "Express.js","REST APIs"],
     database: ["MySQL", "SQLite"],
     tools: ["Git", "GitHub", "Postman", "VS Code", "Android Studio", "Xcode"],
     integrations: [
@@ -48,14 +48,14 @@ export const resumeData = {
     ],
     aiTools: ["OpenAI GPT-4 API", "Deepgram (Speech Recognition)", "Twilio (Voice)", "LangChain", "Google Cloud Vision AI"],
     deployment: ["App Store Connect", "Google Play Console"],
-    languages: ["English", "Hindi", "Odia"],
+    languages: ["English", "Hindi", "Urdu"],
   },
 
   experience: [
     {
       title: "Software Engineer",
       company: "Maventech Labs Pvt Ltd, Bengaluru, INDIA",
-      period: "Oct 2023 – Present",
+      period: "April 2024 – Present",
       points: [
         "Developed and maintained cross-platform mobile apps using React Native for iOS and Android, ensuring consistent performance and UI across devices.",
         "Renovated the company’s CRM App, improving performance from 93% to 99% in Crashlytics and integrated POS devices (Pinelabs, Msipwe, PhonePe, etc.).",
@@ -71,9 +71,9 @@ export const resumeData = {
   webProjects: [
     { name: "KSRTC", desc: "Online booking and payment platform for Karnataka State Road Transport Corporation." },
     { name: "KSRTC Swift", desc: "Real-time seat availability and modern booking UI for swift ticketing." },
-    { name: "Shrinath Travel Agency", desc: "Designed and maintained platform for bookings and trip management." },
-    { name: "Gajraj Bus", desc: "Designed and maintained platform for bookings and trip management." },
-    { name: "Mahendra Bus", desc: "Designed and maintained platform for bookings and trip management." },
+    { name: "Gujrat Travel", desc: "Designed and maintained platform for bookings and trip management." },
+    { name: "PUNBUS", desc: "Designed and maintained platform for bookings and trip management." },
+    { name: "Prtc ", desc: "Designed and maintained platform for bookings and trip management." },
   ],
 
   governmentApps: [
@@ -89,26 +89,19 @@ export const resumeData = {
 
   education: [
     {
-      degree: "Master of Computer Application",
-      institute: "Maharaja Sriram Chandra Bhanjadeo University, Odisha",
-      period: "2021 - 2023",
-      score: "CGPA: 8.20",
+      degree: "Bachelor of Technology",
+      institute: "Veer Bahadur Singh Purvanchal University",
+      period: "2018-2022",
+      score: "81.24%",
       extra: "Relevant Coursework: Computer Science and Information Security.",
     },
-    {
-      degree: "Bachelor of Science",
-      institute: "Karanjia Autonomous College, Karanjia",
-      period: "2018 - 2021",
-      score: "CGPA: 7.66",
-      extra: "Relevant Coursework: Physics",
-    },
+
   ],
 
   certifications: [
-    "Full Stack Java Course – JSpiders, Marathahalli Branch",
-    "Responsive Web Design – freeCodeCamp",
-    "JavaScript Algorithms and Data Structures – freeCodeCamp",
-    "One Week National Level Workshop on Python Programming – MSCB University, Baripada",
-    "Certificate Course in C Programming – MSCB University, Baripada",
+    "Full Stack Web Developer Course – Apna College",
+    "Digital Marketing Certificate – Technex IIT B.H.U",
+    "One Week National Level Workshop on Adruino & Robotics – IIT Rourkee",
+    "Certificate Course in Python Programming – IELTS",
   ],
 };
