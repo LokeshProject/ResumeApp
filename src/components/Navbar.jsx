@@ -38,14 +38,14 @@ export default function Navbar() {
                 </div>
 
                 <a
-                    href="/LokeshDasResumes.pdf"
+                    href="/LokeshDas_Resume.pdf"
                     download="LokeshDas_Resume.pdf"
                     className="px-4 py-2 rounded-xl bg-white text-black font-semibold hover:opacity-90 transition"
                 >
                     Download CV
                 </a>
                 <a
-                    href="/LokeshDasResumes.pdf"
+                    href="/LokeshDas_Resume.pdf"
                     target="_blank"
                     rel="noreferrer"
                     className="px-4 py-2 rounded-xl bg-white text-black font-semibold hover:opacity-90 transition"
