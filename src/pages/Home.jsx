@@ -72,7 +72,7 @@ export default function Home() {
           <div className="rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-xl p-4">
             <img
               src={profile}
-              alt="Lokesh Das"
+              alt="Ahtesham"
               className="w-full max-w-md mx-auto rounded-[30px]"
             />
           </div>
