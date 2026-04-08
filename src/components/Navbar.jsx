@@ -16,6 +16,7 @@ const links = [
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const resumeHref = `${import.meta.env.BASE_URL}LokeshDas_Resume.pdf?v=20260408`;
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -59,7 +60,7 @@ export default function Navbar() {
                     {/* CV Buttons - Desktop */}
                     <div className="hidden md:flex gap-2">
                         <motion.a
-                            href="/LokeshDas_Resume.pdf"
+                            href={resumeHref}
                             download="LokeshDas_Resume.pdf"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
@@ -68,7 +69,7 @@ export default function Navbar() {
                             Download CV
                         </motion.a>
                         <motion.a
-                            href="/LokeshDas_Resume.pdf"
+                            href={resumeHref}
                             target="_blank"
                             rel="noreferrer"
                             whileHover={{ scale: 1.05 }}
@@ -118,7 +119,7 @@ export default function Navbar() {
                             {/* CV Buttons - Mobile */}
                             <div className="flex flex-col gap-2 mt-3 pt-3 border-t border-white/10">
                                 <motion.a
-                                    href="/LokeshDas_Resume.pdf"
+                                    href={resumeHref}
                                     download="LokeshDas_Resume.pdf"
                                     whileHover={{ scale: 1.02 }}
                                     className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold transition text-sm text-center"
@@ -126,7 +127,7 @@ export default function Navbar() {
                                     Download CV
                                 </motion.a>
                                 <motion.a
-                                    href="/LokeshDas_Resume.pdf"
+                                    href={resumeHref}
                                     target="_blank"
                                     rel="noreferrer"
                                     whileHover={{ scale: 1.02 }}
