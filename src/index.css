@@ -2,16 +2,98 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg-base: #12080d;
+  --bg-text: #ffffff;
+
+  --blob-a: rgba(128, 26, 58, 0.34);
+  --blob-b: rgba(89, 17, 40, 0.30);
+  --blob-c: rgba(36, 8, 18, 0.24);
+
+  --before-opacity: 0.52;
+  --before-blur: 76px;
+
+  --grid-op: 0.02;
+  --star-op: 0.045;
+}
+
+@media (prefers-color-scheme: light) {
+  /* Keep professional contrast with existing white text-heavy UI */
+  :root {
+    --bg-base: #1a0d13;
+    --bg-text: #ffffff;
+
+    --blob-a: rgba(147, 36, 74, 0.28);
+    --blob-b: rgba(107, 22, 48, 0.24);
+    --blob-c: rgba(58, 12, 28, 0.18);
+
+    --before-opacity: 0.42;
+    --before-blur: 84px;
+
+    --grid-op: 0.015;
+    --star-op: 0.03;
+  }
+}
+
 html,
 body {
   height: 100%;
 }
 
+html {
+  background-color: var(--bg-base);
+}
+
 body {
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-  background: linear-gradient(135deg, #05060a 0%, #0a0e1a 50%, #0f0a15 100%);
-  color: white;
+  background-color: var(--bg-base);
+  color: var(--bg-text);
   min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -2;
+  pointer-events: none;
+
+  background:
+    radial-gradient(900px circle at 14% 16%, var(--blob-a) 0%, transparent 66%),
+    radial-gradient(820px circle at 84% 14%, var(--blob-b) 0%, transparent 66%),
+    radial-gradient(860px circle at 68% 82%, var(--blob-c) 0%, transparent 68%),
+    radial-gradient(620px circle at 18% 86%, rgba(59, 130, 246, 0.10) 0%, transparent 68%);
+
+  filter: blur(var(--before-blur)) saturate(120%);
+  opacity: var(--before-opacity);
+  animation: bgFloat 26s ease-in-out infinite;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image:
+    /* faint grid */
+    linear-gradient(to right, rgba(255, 255, 255, var(--grid-op)) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, var(--grid-op)) 1px, transparent 1px),
+    /* tiny stars */
+    radial-gradient(rgba(255, 255, 255, var(--star-op)) 1px, transparent 1.2px);
+
+  background-size: 220px 220px, 220px 220px, 120px 120px;
+  mix-blend-mode: overlay;
+  opacity: 0.65;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
 }
 
 /* Smooth scrolling */
@@ -57,6 +139,15 @@ html {
   }
   50% {
     transform: translateY(-10px);
+  }
+}
+
+@keyframes bgFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(2%, -1%, 0) scale(1.02);
   }
 }
 

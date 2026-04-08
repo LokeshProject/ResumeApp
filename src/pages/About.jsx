@@ -83,7 +83,7 @@ export default function About() {
           className="mt-16 grid md:grid-cols-3 gap-6"
         >
           {[
-            { label: "Years of Experience", value: "2+" },
+            { label: "Years of Experience", value: "2 years 8 Month" },
             { label: "Projects Completed", value: "15+" },
             { label: "Technologies Mastered", value: "20+" },
           ].map((stat, index) => (

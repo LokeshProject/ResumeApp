@@ -3,12 +3,15 @@ export const resumeData = {
   role: "React JS & React Native Developer",
   location: "Bangalore, Karnataka, 560037",
   email: "itslokeshdas@gmail.com",
+  // "wp" contact details (used on the Contact page). Set these to your real WP/WhatsApp details if different.
+  wpEmail: "itslokeshdas@gmail.com",
   phone: "6362807094",
+  wpPhone: "6362807094",
   objective:
     "Seeking a full-time software development role where I can apply my expertise in mobile and web technologies to create impactful, user-centric digital solutions. Eager to join a forward-thinking team that values innovation, collaboration, and continuous learning.",
 
   summary:
-    "Results-driven Software Developer with 2 years of hands-on experience in building high-performance, cross-platform mobile and web applications using React Native, Android SDK, and React.js. Proficient in API integration, Redux-based state management, and full-cycle app deployment to Google Play Store and Apple App Store. Passionate about clean architecture, scalable design, and performance optimization, with growing focus on AI-powered innovations using OpenAI GPT-4, Deepgram, Twilio, and LangChain.",
+    "Results-driven Software Developer with 2 years 8 Month of hands-on experience in building high-performance, cross-platform mobile and web applications using React Native, Android SDK, and React.js. Proficient in API integration, Redux-based state management, and full-cycle app deployment to Google Play Store and Apple App Store. Passionate about clean architecture, scalable design, and performance optimization, with growing focus on AI-powered innovations using OpenAI GPT-4, Deepgram, Twilio, and LangChain.",
 
   skills: {
     frontend: [
