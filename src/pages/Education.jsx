@@ -53,7 +53,14 @@ export default function Education() {
                     <h3 className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all">
                       {e.degree}
                     </h3>
-                    <p className="text-white/70 mt-1 font-medium">{e.institute}</p>
+                    <a
+                      href={e.instituteLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-white/70 mt-1 font-medium hover:text-blue-400 hover:underline transition-colors cursor-pointer"
+                    >
+                      {e.institute}
+                    </a>
                   </div>
                 </div>
 

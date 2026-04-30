@@ -94,6 +94,7 @@ export const resumeData = {
     {
       degree: "Master of Computer Application",
       institute: "Maharaja Sriram Chandra Bhanjadeo University, Odisha",
+      instituteLink: "https://www.nou.nic.in/",
       period: "2021 - 2023",
       score: "CGPA: 8.20",
       extra: "Relevant Coursework: Computer Science and Information Security.",
@@ -101,6 +102,7 @@ export const resumeData = {
     {
       degree: "Bachelor of Science",
       institute: "Karanjia Autonomous College, Karanjia",
+      instituteLink: "https://karanjiacollege.com/",
       period: "2018 - 2021",
       score: "CGPA: 7.66",
       extra: "Relevant Coursework: Physics",

@@ -143,7 +143,7 @@ export default function Home() {
             <img
               src={profile}
               alt="Lokesh Das"
-              className="w-full max-w-md mx-auto rounded-[30px] shadow-lg"
+              className="w-full max-w-xs md:max-w-sm mx-auto rounded-[30px] shadow-lg"
             />
           </div>
           <motion.div
