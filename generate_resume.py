@@ -10,12 +10,12 @@ pdf.set_font("Helvetica", "B", 16)
 pdf.cell(0, 10, "LOKESH DAS", ln=True, align="C")
 
 pdf.set_font("Helvetica", "", 10)
-pdf.cell(0, 6, "React JS & React Native Developer", ln=True, align="C")
+pdf.cell(0, 6, "Full Stack Developer | React JS, React Native & Java Spring", ln=True, align="C")
 pdf.ln(2)
 
 # Contact Info
 pdf.set_font("Helvetica", "", 8)
-pdf.cell(0, 4, "Email: itslokeshdas@gmail.com | Phone: 6362807094 | Bangalore, Karnataka", ln=True, align="C")
+pdf.cell(0, 4, "Email: lokesh.das.software@gmail.com | Phone: 7829153501 | Bangalore, Karnataka", ln=True, align="C")
 pdf.ln(2)
 
 # Objective

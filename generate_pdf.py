@@ -19,8 +19,8 @@ html_content = """
 <body>
     <div class="header">
         <h1>LOKESH DAS</h1>
-        <p class="subtitle">React JS & React Native Developer</p>
-        <p class="contact">Email: itslokeshdas@gmail.com | Phone: 6362807094 | Bangalore, Karnataka</p>
+        <p class="subtitle">Full Stack Developer | React JS, React Native & Java Spring</p>
+        <p class="contact">Email: lokesh.das.software@gmail.com | Phone: 7829153501 | Bangalore, Karnataka</p>
     </div>
 
     <h2>OBJECTIVE</h2>
