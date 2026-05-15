@@ -17,24 +17,6 @@
   --star-op: 0.045;
 }
 
-@media (prefers-color-scheme: light) {
-  /* Keep professional contrast with existing white text-heavy UI */
-  :root {
-    --bg-base: #f5f5f5;
-    --bg-text: #1a1a1a;
-
-    --blob-a: rgba(147, 36, 74, 0.08);
-    --blob-b: rgba(107, 22, 48, 0.06);
-    --blob-c: rgba(58, 12, 28, 0.04);
-
-    --before-opacity: 0.3;
-    --before-blur: 100px;
-
-    --grid-op: 0.008;
-    --star-op: 0.015;
-  }
-}
-
 html,
 body {
   height: 100%;
@@ -51,12 +33,6 @@ body {
   min-height: 100vh;
   position: relative;
   isolation: isolate;
-}
-
-@media (prefers-color-scheme: light) {
-  body {
-    color: #1a1a1a;
-  }
 }
 
 body::before {
