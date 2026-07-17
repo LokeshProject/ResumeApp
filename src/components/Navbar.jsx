@@ -1,145 +1,101 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-    { to: "/", label: "Home" },
-    { to: "/about", label: "About" },
-    { to: "/skills", label: "Skills" },
-    { to: "/experience", label: "Experience" },
-    { to: "/projects", label: "Projects" },
-    { to: "/education", label: "Education" },
-    { to: "/certifications", label: "Certifications" },
-    { to: "/contact", label: "Contact" },
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/skills", label: "Skills" },
+  { to: "/experience", label: "Experience" },
+  { to: "/projects", label: "Projects" },
+  { to: "/education", label: "Education" },
+  { to: "/certifications", label: "Certs" },
+  { to: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
-    const [menuOpen, setMenuOpen] = useState(false);
-    const resumeHref = `${import.meta.env.BASE_URL}LokeshDas_Resume.pdf?v=20260408`;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const resumeHref = `${import.meta.env.BASE_URL}Lokesh_Das_Software_Engineer.pdf?v=20260717`;
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
+  return (
+    <header className="sticky top-0 z-50 border-b border-line/80 bg-paper/85 backdrop-blur-md">
+      <div className="page-shell flex items-center justify-between gap-4 py-4">
+        <Link to="/" className="font-display text-xl font-extrabold tracking-tight text-ink md:text-2xl">
+          Lokesh<span className="text-teal">.Dev</span>
+        </Link>
 
-    const closeMenu = () => {
-        setMenuOpen(false);
-    };
+        <nav className="hidden items-center gap-6 lg:flex">
+          {links.map((l) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              end={l.to === "/"}
+              className={({ isActive }) =>
+                `nav-link text-sm ${isActive ? "nav-link-active" : ""}`
+              }
+            >
+              {l.label}
+            </NavLink>
+          ))}
+        </nav>
 
-    return (
-        <div className="sticky top-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/10">
-            <div className="max-w-6xl mx-auto px-4 py-4">
-                {/* Desktop & Mobile Top Bar */}
-                <div className="flex items-center justify-between">
-                    <motion.div
-                        className="font-extrabold tracking-tight text-lg md:text-2xl"
-                        whileHover={{ scale: 1.05 }}
-                    >
-                        <span className="text-white">Lokesh</span>
-                        <span className="bg-gradient-to-r from-blue-400 to-purple-600 text-transparent bg-clip-text">.dev</span>
-                    </motion.div>
-
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex gap-2 text-sm">
-                        {links.map((l) => (
-                            <NavLink
-                                key={l.to}
-                                to={l.to}
-                                className={({ isActive }) =>
-                                    `px-4 py-2 rounded-xl transition-all duration-300 border ${isActive
-                                        ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white border-transparent shadow-lg shadow-purple-500/30"
-                                        : "text-white/80 border-white/20 hover:border-white/40 hover:bg-white/5"
-                                    }`
-                                }
-                            >
-                                {l.label}
-                            </NavLink>
-                        ))}
-                    </div>
-
-                    {/* CV Buttons - Desktop */}
-                    <div className="hidden md:flex gap-2">
-                        <motion.a
-                            href={resumeHref}
-                            download="LokeshDas_Resume.pdf"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/40 transition-all text-sm"
-                        >
-                            Download CV
-                        </motion.a>
-                        <motion.a
-                            href={resumeHref}
-                            target="_blank"
-                            rel="noreferrer"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="px-4 py-2 rounded-xl border-2 border-white/30 text-white font-semibold hover:border-white/60 hover:bg-white/10 transition-all text-sm"
-                        >
-                            View CV
-                        </motion.a>
-                    </div>
-
-                    {/* Mobile Menu Button */}
-                    <motion.button
-                        onClick={toggleMenu}
-                        className="md:hidden text-white text-2xl focus:outline-none"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        {menuOpen ? <FaTimes /> : <FaBars />}
-                    </motion.button>
-                </div>
-
-                {/* Mobile Navigation Menu */}
-                {menuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className="md:hidden mt-4 pb-4"
-                    >
-                        <div className="flex flex-col gap-2">
-                            {links.map((l) => (
-                                <NavLink
-                                    key={l.to}
-                                    to={l.to}
-                                    onClick={closeMenu}
-                                    className={({ isActive }) =>
-                                        `px-4 py-2 rounded-lg transition-all duration-300 border text-sm ${isActive
-                                            ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white border-transparent font-semibold"
-                                            : "text-white/80 border-white/20 hover:border-white/40 hover:bg-white/5"
-                                        }`
-                                    }
-                                >
-                                    {l.label}
-                                </NavLink>
-                            ))}
-
-                            {/* CV Buttons - Mobile */}
-                            <div className="flex flex-col gap-2 mt-3 pt-3 border-t border-white/10">
-                                <motion.a
-                                    href={resumeHref}
-                                    download="LokeshDas_Resume.pdf"
-                                    whileHover={{ scale: 1.02 }}
-                                    className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold transition text-sm text-center"
-                                >
-                                    Download CV
-                                </motion.a>
-                                <motion.a
-                                    href={resumeHref}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    whileHover={{ scale: 1.02 }}
-                                    className="px-4 py-2 rounded-lg border-2 border-white/30 text-white font-semibold hover:border-white/60 hover:bg-white/10 transition text-sm text-center"
-                                >
-                                    View CV
-                                </motion.a>
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
-            </div>
+        <div className="hidden items-center gap-2 md:flex">
+          <a href={resumeHref} target="_blank" rel="noreferrer" className="btn-secondary !py-2 !px-3 text-xs">
+            View CV
+          </a>
+          <a href={resumeHref} download="Lokesh_Das_Software_Engineer.pdf" className="btn-primary !py-2 !px-3 text-xs">
+            Download
+          </a>
         </div>
-    );
+
+        <button
+          type="button"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMenuOpen((v) => !v)}
+          className="rounded-md border border-line p-2 text-ink lg:hidden"
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.28 }}
+            className="overflow-hidden border-t border-line lg:hidden"
+          >
+            <div className="page-shell flex flex-col gap-1 py-4">
+              {links.map((l) => (
+                <NavLink
+                  key={l.to}
+                  to={l.to}
+                  end={l.to === "/"}
+                  onClick={() => setMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `rounded-md px-3 py-2.5 text-sm font-medium ${
+                      isActive ? "bg-teal-mist text-teal-deep" : "text-ink-soft hover:bg-white/60"
+                    }`
+                  }
+                >
+                  {l.label}
+                </NavLink>
+              ))}
+              <div className="mt-3 flex gap-2 border-t border-line pt-3">
+                <a href={resumeHref} target="_blank" rel="noreferrer" className="btn-secondary flex-1 !py-2 text-xs">
+                  View CV
+                </a>
+                <a href={resumeHref} download="Lokesh_Das_Software_Engineer.pdf" className="btn-primary flex-1 !py-2 text-xs">
+                  Download
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  );
 }

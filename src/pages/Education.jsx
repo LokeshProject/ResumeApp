@@ -2,104 +2,45 @@ import PageWrapper from "../components/PageWrapper";
 import SectionTitle from "../components/SectionTitle";
 import { resumeData } from "../data/resumeData";
 import { motion } from "framer-motion";
-import { FaGraduationCap, FaAward } from "react-icons/fa";
 
 export default function Education() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
   return (
     <PageWrapper>
-      <div className="max-w-6xl mx-auto">
-        <SectionTitle title="Education" subtitle="Academic qualifications and achievements" />
+      <div className="page-shell">
+        <SectionTitle
+          kicker="Academics"
+          title="Education"
+          subtitle="The academic base behind the engineering craft."
+        />
 
-        <motion.div
-          className="grid md:grid-cols-2 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {resumeData.education.map((e) => (
-            <motion.div
+        <ol className="relative space-y-0 border-l border-line pl-8">
+          {resumeData.education.map((e, index) => (
+            <motion.li
               key={e.degree}
-              variants={itemVariants}
-              whileHover={{ y: -8 }}
-              className="group p-8 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] hover:border-white/30 transition-all duration-300 card-hover relative overflow-hidden"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              className="relative pb-12 last:pb-0"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="p-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-                    <FaGraduationCap className="text-2xl" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all">
-                      {e.degree}
-                    </h3>
-                    <a
-                      href={e.instituteLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-white/70 mt-1 font-medium hover:text-blue-400 hover:underline transition-colors cursor-pointer"
-                    >
-                      {e.institute}
-                    </a>
-                  </div>
-                </div>
-
-                <div className="space-y-3 ml-0 md:ml-16">
-                  <motion.div
-                    className="flex items-center gap-2 text-white/60 text-sm"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.1 }}
-                  >
-                    <span className="text-blue-400">📅</span>
-                    <span>{e.period}</span>
-                  </motion.div>
-
-                  <motion.div
-                    className="flex items-center gap-2 text-white/80 font-semibold"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.15 }}
-                  >
-                    <FaAward className="text-yellow-400" />
-                    <span>{e.score}</span>
-                  </motion.div>
-
-                  {e.extra && (
-                    <motion.p
-                      className="text-white/60 text-sm italic"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      {e.extra}
-                    </motion.p>
-                  )}
-                </div>
-              </div>
-            </motion.div>
+              <span className="absolute -left-[37px] top-1.5 h-3 w-3 rounded-full border-2 border-teal bg-paper" />
+              <p className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-teal">
+                {e.period}
+              </p>
+              <h2 className="mt-2 font-display text-2xl font-bold text-ink">{e.degree}</h2>
+              <a
+                href={e.instituteLink}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-1 inline-block text-ink-soft underline-offset-4 transition hover:text-teal hover:underline"
+              >
+                {e.institute}
+              </a>
+              <p className="mt-3 font-medium text-ink">{e.score}</p>
+              {e.extra ? <p className="mt-2 text-sm text-ink-mute">{e.extra}</p> : null}
+            </motion.li>
           ))}
-        </motion.div>
+        </ol>
       </div>
     </PageWrapper>
   );

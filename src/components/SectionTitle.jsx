@@ -1,36 +1,28 @@
 import { motion } from "framer-motion";
 
-export default function SectionTitle({ title, subtitle }) {
+export default function SectionTitle({ title, subtitle, kicker }) {
   return (
     <motion.div
-      className="mb-10"
-      initial={{ opacity: 0, y: -20 }}
+      className="mb-10 max-w-2xl"
+      initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.5 }}
     >
-      <motion.h2
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        className="text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/80"
-      >
+      {kicker ? <p className="section-kicker mb-3">{kicker}</p> : null}
+      <h1 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
         {title}
-      </motion.h2>
+      </h1>
       {subtitle ? (
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.1 }}
-          className="text-white/60 mt-3 text-lg font-medium"
-        >
-          {subtitle}
-        </motion.p>
+        <p className="mt-3 text-lg leading-relaxed text-ink-mute">{subtitle}</p>
       ) : null}
       <motion.div
-        className="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mt-6 rounded-full"
-        initial={{ width: 0 }}
-        whileInView={{ width: 80 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="mt-6 h-[3px] origin-left bg-teal"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        style={{ width: 56 }}
       />
     </motion.div>
   );

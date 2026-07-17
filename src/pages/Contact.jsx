@@ -1,7 +1,7 @@
 import PageWrapper from "../components/PageWrapper";
 import SectionTitle from "../components/SectionTitle";
 import { resumeData } from "../data/resumeData";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Contact() {
@@ -9,109 +9,118 @@ export default function Contact() {
   const wpDigits = wpPhoneRaw.replace(/\D/g, "");
   const waNumber = wpDigits.length === 10 ? `91${wpDigits}` : wpDigits;
 
-  const contactMethods = [
-    { icon: FaEnvelope, label: "Email", value: resumeData.email, link: `mailto:${resumeData.email}`, color: "from-blue-500 to-cyan-500" },
-    { icon: FaPhone, label: "Phone", value: resumeData.phone, link: `tel:${resumeData.phone}`, color: "from-green-500 to-emerald-500" },
-    { icon: FaPhone, label: "WP Phone", value: wpPhoneRaw, link: `https://wa.me/${waNumber}`, color: "from-emerald-500 to-lime-400" },
-    { icon: FaMapMarkerAlt, label: "Location", value: resumeData.location, link: null, color: "from-purple-500 to-pink-500" },
+  const methods = [
+    {
+      icon: FaEnvelope,
+      label: "Email",
+      value: resumeData.email,
+      href: `mailto:${resumeData.email}`,
+    },
+    {
+      icon: FaPhone,
+      label: "Phone",
+      value: resumeData.phone,
+      href: `tel:${resumeData.phone}`,
+    },
+    {
+      icon: FaWhatsapp,
+      label: "WhatsApp",
+      value: wpPhoneRaw,
+      href: `https://wa.me/${waNumber}`,
+      external: true,
+    },
+    {
+      icon: FaMapMarkerAlt,
+      label: "Location",
+      value: resumeData.location,
+      href: null,
+    },
   ];
 
   return (
     <PageWrapper>
-      <div className="max-w-6xl mx-auto">
-        <SectionTitle title="Contact" subtitle="Let's collaborate and create something amazing" />
+      <div className="page-shell">
+        <SectionTitle
+          kicker="Connect"
+          title="Contact"
+          subtitle="Open to full-time roles, freelance builds, and collaborations that matter."
+        />
 
-        <div className="grid md:grid-cols-2 gap-8 md:items-stretch">
-          {/* Contact Information */}
+        <div className="grid gap-12 lg:grid-cols-2">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="h-full md:min-h-[540px] p-6 md:p-8 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] card-hover relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10" />
-            <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-6">Contact Details</h3>
-              <div className="divide-y divide-white/10 rounded-xl border border-white/10 bg-black/20">
-                {contactMethods.map((method, index) => {
-                  const Icon = method.icon;
-                  return (
-                    <motion.a
-                      key={method.label}
-                      href={method.link || "#"}
-                      target={method.label === "WP Phone" ? "_blank" : undefined}
-                      rel={method.label === "WP Phone" ? "noreferrer" : undefined}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.08 }}
-                      whileHover={{ x: 6 }}
-                      className="group flex items-start gap-4 px-4 py-4 transition-all duration-300 hover:bg-white/5"
+            <p className="max-w-md text-lg leading-relaxed text-ink-soft">
+              I build web and mobile products with React, React Native, and modern backend
+              stacks. Reach out for roles, consulting, or a quick technical chat.
+            </p>
+            <div className="mt-8 space-y-3 text-sm text-ink-mute">
+              <p>Usually replies within 24 hours.</p>
+              <p>Best for deep dives: email. Quick sync: phone or WhatsApp.</p>
+            </div>
+          </motion.div>
+
+          <motion.ul
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.08 }}
+            className="divide-y divide-line border-y border-line"
+          >
+            {methods.map((m) => {
+              const Icon = m.icon;
+              const inner = (
+                <>
+                  <span className="flex h-10 w-10 items-center justify-center rounded-md bg-teal-mist text-teal-deep">
+                    <Icon />
+                  </span>
+                  <span>
+                    <span className="block text-xs font-semibold uppercase tracking-wider text-ink-mute">
+                      {m.label}
+                    </span>
+                    <span className="mt-0.5 block font-medium text-ink">{m.value}</span>
+                  </span>
+                </>
+              );
+
+              return (
+                <li key={m.label}>
+                  {m.href ? (
+                    <a
+                      href={m.href}
+                      target={m.external ? "_blank" : undefined}
+                      rel={m.external ? "noreferrer" : undefined}
+                      className="flex items-center gap-4 py-4 transition hover:bg-white/50"
                     >
-                      <div className={`p-3 rounded-lg bg-gradient-to-r ${method.color} text-white flex-shrink-0`}>
-                        <Icon className="text-xl" />
-                      </div>
-                      <div>
-                        <p className="text-white/60 text-sm font-medium">{method.label}</p>
-                        <p className="text-white font-semibold mt-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-300 group-hover:to-purple-300 transition-all">
-                          {method.value}
-                        </p>
-                      </div>
-                    </motion.a>
-                  );
-                })}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Side Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="h-full md:min-h-[540px] p-8 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] card-hover relative overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10" />
-            <div className="relative z-10 h-full flex flex-col">
-              <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight">
-                Let's Connect and Build Something Meaningful
-              </h3>
-
-              <p className="mt-4 text-white/75 leading-relaxed">
-                I am open to full-time roles, freelance projects, and collaborations in
-                React.js, React Native, and modern frontend development.
-              </p>
-
-              <div className="mt-6 space-y-4">
-                <div className="p-4 rounded-xl border border-white/10 bg-white/5">
-                  <p className="text-white font-semibold">Available for</p>
-                  <p className="text-white/70 text-sm mt-1">Web apps, mobile apps, UI improvements, and performance optimization.</p>
-                </div>
-                <div className="p-4 rounded-xl border border-white/10 bg-white/5">
-                  <p className="text-white font-semibold">Response Time</p>
-                  <p className="text-white/70 text-sm mt-1">Usually within 24 hours via email or phone.</p>
-                </div>
-                <div className="p-4 rounded-xl border border-white/10 bg-white/5">
-                  <p className="text-white font-semibold">Preferred Contact</p>
-                  <p className="text-white/70 text-sm mt-1">Email for detailed discussion, phone for quick communication.</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+                      {inner}
+                    </a>
+                  ) : (
+                    <div className="flex items-center gap-4 py-4">{inner}</div>
+                  )}
+                </li>
+              );
+            })}
+          </motion.ul>
         </div>
 
-        {/* Additional CTA Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 p-8 rounded-2xl border border-white/10 bg-gradient-to-r from-blue-500/10 to-purple-600/10 text-center"
+          className="mt-14 rounded-md bg-ink px-6 py-8 text-paper md:px-10"
         >
-          <h3 className="text-2xl font-bold text-white mb-3">
-            Let's build something great together! 🚀
-          </h3>
-          <p className="text-white/70 text-lg">
-            Whether you have a question or just want to say hi, feel free to reach out!
+          <h2 className="font-display text-2xl font-bold md:text-3xl">
+            Let&apos;s build something people rely on.
+          </h2>
+          <p className="mt-3 max-w-xl text-paper/70">
+            Share the product vision, the users, and the hard constraints — I&apos;ll help chart
+            a clear path from idea to shipped release.
           </p>
+          <a href={`mailto:${resumeData.email}`} className="btn-spark mt-6 inline-flex">
+            Email Lokesh
+          </a>
         </motion.div>
       </div>
     </PageWrapper>

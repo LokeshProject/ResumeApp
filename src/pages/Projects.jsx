@@ -4,83 +4,89 @@ import { resumeData } from "../data/resumeData";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
-function ProjectGrid({ title, items }) {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+function ProjectTitle({ project }) {
+  const className =
+    "font-display text-lg font-semibold text-ink transition group-hover:text-teal-deep inline-flex items-center gap-2";
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
+  if (project.url) {
+    return (
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noreferrer"
+        className={`${className} hover:underline underline-offset-4`}
+      >
+        {project.name}
+        <FaExternalLinkAlt className="text-[0.65rem] opacity-50" aria-hidden />
+      </a>
+    );
+  }
+
+  return <span className={className}>{project.name}</span>;
+}
+
+function ProjectLinks({ project }) {
+  if (!project.links?.length) return null;
 
   return (
-    <div className="mt-12">
-      <motion.h3
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-6"
-      >
-        {title}
-      </motion.h3>
-      <motion.div
-        className="grid md:grid-cols-3 gap-6"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        {items.map((p) => (
-          <motion.div
-            key={p.name}
-            variants={itemVariants}
-            whileHover={{ y: -8 }}
-            className="group p-6 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] hover:border-white/30 transition-all duration-300 card-hover overflow-hidden relative"
-          >
-            {/* Gradient background on hover */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            
-            <div className="relative z-10">
-              <h4 className="font-bold text-lg text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all">
-                {p.name}
-              </h4>
-              <p className="text-white/60 mt-3 text-sm leading-relaxed group-hover:text-white/80 transition-colors">
-                {p.desc}
-              </p>
-              <motion.div
-                className="mt-4 flex justify-end"
-                initial={{ opacity: 0, x: -10 }}
-                whileHover={{ opacity: 1, x: 0 }}
-              >
-                <FaExternalLinkAlt className="text-white/40 group-hover:text-white/80 transition-colors text-lg" />
-              </motion.div>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
+    <div className="mt-3 flex flex-wrap gap-3">
+      {project.links.map((link) => (
+        <a
+          key={link.url}
+          href={link.url}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-deep transition hover:text-teal hover:underline underline-offset-4"
+        >
+          {link.label}
+          <FaExternalLinkAlt className="text-[0.6rem] opacity-60" aria-hidden />
+        </a>
+      ))}
     </div>
+  );
+}
+
+function ProjectList({ title, items }) {
+  return (
+    <section className="mt-14">
+      <h2 className="font-display text-xl font-bold text-ink md:text-2xl">{title}</h2>
+      <ul className="mt-6 divide-y divide-line border-y border-line">
+        {items.map((p, i) => (
+          <motion.li
+            key={p.name}
+            initial={{ opacity: 0, x: -12 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.04 }}
+            className="group grid gap-2 py-5 transition md:grid-cols-12 md:items-baseline md:gap-6"
+          >
+            <h3 className="md:col-span-4">
+              <ProjectTitle project={p} />
+            </h3>
+            <div className="md:col-span-8">
+              <p className="text-ink-mute leading-relaxed">{p.desc}</p>
+              <ProjectLinks project={p} />
+            </div>
+          </motion.li>
+        ))}
+      </ul>
+    </section>
   );
 }
 
 export default function Projects() {
   return (
     <PageWrapper>
-      <div className="max-w-6xl mx-auto">
-        <SectionTitle title="Projects" subtitle="Live + enterprise projects that showcase my expertise" />
+      <div className="page-shell">
+        <SectionTitle
+          kicker="Selected work"
+          title="Projects"
+          subtitle="Real products in the wild — transport, logistics, and government platforms."
+        />
 
-        <ProjectGrid title="🚀 Key Web Projects (React.js)" items={resumeData.webProjects} />
-        <ProjectGrid title="🏛️ Government App Deployments" items={resumeData.governmentApps} />
-        <ProjectGrid title="⭐ Other Notable Apps" items={resumeData.otherApps} />
+        <ProjectList title="Web platforms" items={resumeData.webProjects} />
+        <ProjectList title="Government apps" items={resumeData.governmentApps} />
+        <ProjectList title="Other apps" items={resumeData.otherApps} />
       </div>
     </PageWrapper>
   );
