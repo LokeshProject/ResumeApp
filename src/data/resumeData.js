@@ -1,17 +1,18 @@
 export const resumeData = {
   name: "Lokesh Das",
-  role: "Full Stack Developer | React JS, React Native & Java Spring",
+  role: "Full Stack Developer · React · React Native · Java Spring",
   location: "Bangalore, Karnataka, 560037",
   email: "lokesh.das.software@gmail.com",
   // "wp" contact details (used on the Contact page). Set these to your real WP/WhatsApp details if different.
   wpEmail: "lokesh.das.software@gmail.com",
   phone: "7829153501",
   wpPhone: "7829153501",
+  yearsExperience: "3+",
   objective:
-    "Full Stack Developer driven by passion for building scalable, high-performance applications. Seeking to leverage expertise in React JS, React Native, and Java Spring to deliver innovative solutions that impact millions of users. Committed to writing clean code, mentoring junior developers, and driving continuous technical excellence.",
+    "Full Stack Developer who thrives on turning complex product ideas into fast, reliable apps people love. Looking for a team where React, React Native, and Java Spring skills can drive real impact — clean architecture, sharp UX, and code that scales.",
 
   summary:
-    "Innovative Full Stack Software Developer with 2.5+ years of proven expertise in architecting and delivering high-performance, scalable applications serving 50M+ users. Specialized in React.js, React Native, and Java Spring with demonstrated success in mobile and web development, microservices architecture, and AI/ML integrations. Track record of increasing app performance from 93% to 99% stability, deploying 150+ microapps across multiple platforms, and implementing complex integrations (POS systems, payment gateways, voice/speech recognition). Expertise in Redux, REST APIs, Firebase, authentication mechanisms, and modern DevOps practices. Passionate about clean code, scalable design patterns, and AI-powered innovations.",
+    "Full Stack Software Developer with 3+ years building high-performance web and mobile products used by 50M+ people. Deep expertise in React.js, React Native, and Java Spring — from pixel-perfect UIs to microservices and AI-powered features. Proven wins: lifting app stability from 93% to 99%, shipping 150+ microapps to production stores, and wiring complex POS, payment, and voice integrations. Comfortable owning the full lifecycle: Redux, REST APIs, Firebase, auth, App Store / Play Console releases, and performance tuning that users feel.",
 
   skills: {
     frontend: [
@@ -60,41 +61,93 @@ export const resumeData = {
       company: "Maventech Labs Pvt Ltd, Bengaluru, INDIA",
       period: "Oct 2023 – Present",
       points: [
-        "Architected and maintained cross-platform React Native applications for iOS and Android, reaching 50M+ users with 99%+ stability and <2s load times.",
-        "Spearheaded complete CRM App renovation, improving crash rate from 93% to 99% stability in Crashlytics; integrated POS devices (Pinelabs, Msipwe, PhonePe) increasing transaction success by 35%.",
-        "Engineered and deployed 150+ production-ready microapps from unified codebase to Google Play Store for 10+ bus operators, managing $5M+ annual transaction volume.",
-        "Implemented advanced Redux state management, Firebase Cloud Messaging, and complex navigation patterns supporting 10M+ monthly active users.",
-        "Led full-cycle app lifecycle: design, development, testing, deployment to App Store Connect & Google Play Console, OTA updates, and version management.",
-        "Collaborated with product and design teams to deliver pixel-perfect, accessible interfaces achieving 4.8+ app store ratings.",
-        "Optimized application performance through DSA implementation, reducing memory footprint by 40% and improving app responsiveness by 50%.",
+        "Built and scaled React Native apps for iOS & Android serving 50M+ users — 99%+ stability and sub-2s load times under real production traffic.",
+        "Led a full CRM rebuild that pushed Crashlytics stability from 93% to 99%; integrated Pinelabs, Msipwe & PhonePe POS and lifted transaction success by 35%.",
+        "Shipped 150+ production microapps from one shared codebase to Google Play for 10+ bus operators, supporting $5M+ in annual transactions.",
+        "Designed Redux state, FCM push flows, and navigation for products handling 10M+ monthly active users without sacrificing UX polish.",
+        "Owned end-to-end release: design, build, QA, App Store Connect & Play Console deploys, OTA updates, and versioning.",
+        "Partnered with product & design to ship accessible, pixel-perfect UI that consistently earns 4.8+ store ratings.",
+        "Cut memory use by 40% and boosted responsiveness by 50% through targeted performance work and solid DSA fundamentals.",
       ],
     },
   ],
 
   webProjects: [
-    { name: "KSRTC", desc: "High-traffic online booking and payment platform (Karnataka State Road Transport Corporation) processing 100K+ daily transactions with 99.9% uptime." },
-    { name: "KSRTC Swift", desc: "Real-time seat availability engine with modern booking UI enabling instant ticket confirmation for 5M+ monthly users." },
-    { name: "Shrinath Travel Agency", desc: "End-to-end booking platform managing trips for 50K+ users with advanced search, payment, and itinerary management." },
-    { name: "Gajraj Bus", desc: "Scalable multi-operator booking platform supporting concurrent reservations for 1M+ users with real-time seat updates." },
-    { name: "Mahendra Bus", desc: "Comprehensive trip management system with dynamic pricing, customer analytics, and operator dashboard." },
+    {
+      name: "KSRTC",
+      url: "https://www.ksrtc.in/",
+      desc: "High-traffic booking & payments for Karnataka State Road Transport — 100K+ daily transactions with 99.9% uptime.",
+    },
+    {
+      name: "KSRTC Swift",
+      url: "https://onlineksrtcswift.com/",
+      desc: "Instant seat availability and modern booking UI for 5M+ monthly riders, with ticket confirmation in seconds.",
+    },
+    {
+      name: "Shrinath Travel Agency",
+      url: "https://shrinath.biz/",
+      desc: "Full-funnel booking for 50K+ travelers — smart search, secure payments, and clear itinerary management.",
+    },
+    {
+      name: "Gajraj Bus",
+      url: "https://www.gajrajbus.com/",
+      desc: "Multi-operator platform with live seat sync for 1M+ users booking concurrently without collisions.",
+    },
+    {
+      name: "Mahendra Bus",
+      url: "https://www.mahendrabus.in/",
+      desc: "Trip ops hub with dynamic pricing, rider insights, and a dashboard operators actually want to use.",
+    },
   ],
 
   governmentApps: [
-    { name: "KSRTC AWATAR", desc: "Karnataka's official government transport app (5M+ downloads) enabling seamless interstate ticketing with GPS tracking and real-time updates." },
-    { name: "Ente KSRTC", desc: "Kerala RTC online reservation platform serving 2M+ monthly active users with 98%+ system availability and integrated payment gateway." },
-    { name: "PUNBUS (Punjab Roadways)", desc: "Real-time intercity bus management platform reducing booking time by 60% with live fleet tracking and predictive seat availability." },
+    {
+      name: "KSRTC AWATAR",
+      links: [
+        { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.ksrtc.awatar.new&pcampaignid=web_share" },
+        { label: "App Store", url: "https://apps.apple.com/in/app/ksrtc-awatar/id1250082402" },
+      ],
+      desc: "Karnataka’s official transport app (5M+ downloads) — interstate tickets, GPS tracking, and live trip updates.",
+    },
+    {
+      name: "Ente KSRTC",
+      links: [
+        { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.maven.onlineksrtcswift&pcampaignid=web_share" },
+        { label: "App Store", url: "https://apps.apple.com/in/app/ente-ksrtc-neo-oprs/id6449036466" },
+      ],
+      desc: "Kerala RTC reservations for 2M+ monthly users — 98%+ availability with rock-solid payment checkout.",
+    },
+    {
+      name: "PUNBUS (Punjab Roadways)",
+      links: [
+        { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.travelyaari.punbus&pcampaignid=web_share" },
+        { label: "App Store", url: "https://apps.apple.com/in/app/punbus/id6745927477" },
+      ],
+      desc: "Intercity bus platform that cut booking time by 60% with live fleet tracking and smarter seat prediction.",
+    },
   ],
 
   otherApps: [
-    { name: "Iam GDS", desc: "Logistics and cargo management mobile platform supporting 500K+ daily shipments with real-time tracking and automated invoicing." },
-    { name: "Multiple iOS React Native Apps", desc: "Developed and deployed 20+ internal and public apps with combined 10M+ downloads, achieving consistent 4.5+ store ratings." },
+    {
+      name: "Iam GDS",
+      url: "https://iamgds.com/",
+      desc: "Cargo & logistics app for 500K+ daily shipments — live tracking and automated invoicing built in.",
+    },
+    {
+      name: "Multiple iOS React Native Apps",
+      links: [
+        { label: "Play Store", url: "https://play.google.com/store/apps/dev?id=5316670061477242827&hl=en_IN" },
+        { label: "App Store", url: "https://apps.apple.com/in/developer/maventech-labs-private-limited/id1712259355" },
+      ],
+      desc: "20+ internal and public iOS apps totaling 10M+ downloads, holding steady 4.5+ ratings.",
+    },
   ],
 
   education: [
     {
       degree: "Master of Computer Application",
       institute: "Maharaja Sriram Chandra Bhanjadeo University, Odisha",
-      instituteLink: "https://www.nou.nic.in/",
+      instituteLink: "https://mscbu.ac.in/",
       period: "2021 - 2023",
       score: "CGPA: 8.20",
       extra: "Relevant Coursework: Computer Science and Information Security.",

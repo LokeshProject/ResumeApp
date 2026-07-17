@@ -1,7 +1,7 @@
 from weasyprint import HTML, CSS
 
 html_content = """
-<!DOCTYPE html>
+<!DOCTYPE html>                                                                                                                                                                     
 <html>
 <head>
     <style>
@@ -24,22 +24,22 @@ html_content = """
     </div>
 
     <h2>OBJECTIVE</h2>
-    <p>Seeking a full-time software development role where I can apply my expertise in mobile and web technologies to create impactful, user-centric digital solutions. Eager to join a forward-thinking team that values innovation, collaboration, and continuous learning.</p>
+    <p>Full Stack Developer who thrives on turning complex product ideas into fast, reliable apps people love. Looking for a team where React, React Native, and Java Spring skills can drive real impact — clean architecture, sharp UX, and code that scales.</p>
 
     <h2>SUMMARY</h2>
-    <p>Results-driven Software Developer with 2 years of hands-on experience in building high-performance, cross-platform mobile and web applications using React Native, Android SDK, and React.js. Proficient in API integration, Redux-based state management, and full-cycle app deployment to Google Play Store and Apple App Store.</p>
+    <p>Full Stack Software Developer with 3+ years building high-performance web and mobile products used by 50M+ people. Deep expertise in React.js, React Native, and Java Spring — from pixel-perfect UIs to microservices and AI-powered features. Proven wins: lifting app stability from 93% to 99%, shipping 150+ microapps to production stores, and wiring complex POS, payment, and voice integrations.</p>
 
     <h2>EXPERIENCE</h2>
     <p><strong>Software Engineer</strong></p>
     <p>Maventech Labs Pvt Ltd, Bengaluru | Oct 2023 - Present</p>
     <ul>
-        <li>Developed and maintained cross-platform mobile apps using React Native for iOS and Android, ensuring consistent performance and UI across devices.</li>
-        <li>Renovated the company's CRM App, improving performance from 93% to 99% in Crashlytics and integrated POS devices (Pinelabs, Msipwe, PhonePe, etc.).</li>
-        <li>Created and deployed over 150 microapps from a single codebase to Google Play Store for multiple bus operators.</li>
-        <li>Used Redux for global state management, Firebase Cloud Messaging for push notifications, and React Navigation for routing.</li>
-        <li>Deployed apps to App Store Connect and Google Play Console; managed OTA updates and version releases.</li>
-        <li>Collaborated with UX/UI teams to deliver responsive and accessible design implementations.</li>
-        <li>Practiced DSA in Java to improve coding efficiency and problem-solving.</li>
+        <li>Built and scaled React Native apps for iOS & Android serving 50M+ users — 99%+ stability and sub-2s load times under real production traffic.</li>
+        <li>Led a full CRM rebuild that pushed Crashlytics stability from 93% to 99%; integrated Pinelabs, Msipwe & PhonePe POS and lifted transaction success by 35%.</li>
+        <li>Shipped 150+ production microapps from one shared codebase to Google Play for 10+ bus operators, supporting $5M+ in annual transactions.</li>
+        <li>Designed Redux state, FCM push flows, and navigation for products handling 10M+ monthly active users without sacrificing UX polish.</li>
+        <li>Owned end-to-end release: design, build, QA, App Store Connect & Play Console deploys, OTA updates, and versioning.</li>
+        <li>Partnered with product & design to ship accessible, pixel-perfect UI that consistently earns 4.8+ store ratings.</li>
+        <li>Cut memory use by 40% and boosted responsiveness by 50% through targeted performance work and solid DSA fundamentals.</li>
     </ul>
 
     <h2>SKILLS</h2>

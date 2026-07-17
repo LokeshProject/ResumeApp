@@ -22,14 +22,14 @@ pdf.ln(2)
 pdf.set_font("Helvetica", "B", 10)
 pdf.cell(0, 5, "OBJECTIVE", ln=True)
 pdf.set_font("Helvetica", "", 8)
-pdf.multi_cell(0, 3, "Seeking a full-time software development role where I can apply my expertise in mobile and web technologies to create impactful, user-centric digital solutions.")
+pdf.multi_cell(0, 3, "Full Stack Developer who thrives on turning complex product ideas into fast, reliable apps people love.")
 pdf.ln(1)
 
 # Summary
 pdf.set_font("Helvetica", "B", 10)
 pdf.cell(0, 5, "SUMMARY", ln=True)
 pdf.set_font("Helvetica", "", 8)
-pdf.multi_cell(0, 3, "Results-driven Software Developer with 2 years of hands-on experience in building high-performance, cross-platform mobile and web applications using React Native, Android SDK, and React.js.")
+pdf.multi_cell(0, 3, "Full Stack Software Developer with 3+ years building high-performance web and mobile products used by 50M+ people using React Native, React.js, and Java Spring.")
 pdf.ln(1)
 
 # Experience
@@ -38,7 +38,7 @@ pdf.cell(0, 5, "EXPERIENCE", ln=True)
 pdf.set_font("Helvetica", "B", 8)
 pdf.cell(0, 3, "Software Engineer - Maventech Labs Pvt Ltd, Bengaluru | Oct 2023 - Present", ln=True)
 pdf.set_font("Helvetica", "", 8)
-pdf.multi_cell(0, 3, "- Developed and maintained cross-platform mobile apps using React Native\n- Renovated CRM App, improving performance from 93% to 99%\n- Created and deployed 150+ microapps to Google Play Store\n- Used Redux for state management and Firebase for push notifications")
+pdf.multi_cell(0, 3, "- Built and scaled React Native apps serving 50M+ users with 99%+ stability\n- Led CRM rebuild: Crashlytics stability 93% to 99%; POS integrations (+35% success)\n- Shipped 150+ production microapps to Google Play for 10+ bus operators\n- Designed Redux, FCM, and navigation for 10M+ monthly active users")
 pdf.ln(1)
 
 # Skills
