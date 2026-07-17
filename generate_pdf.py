@@ -1,4 +1,8 @@
-from weasyprint import HTML, CSS
+from pathlib import Path
+
+from weasyprint import HTML
+
+OUTPUT_PDF = Path(__file__).resolve().parent / "public" / "Lokesh_Das_Software_Engineer.pdf"
 
 html_content = """
 <!DOCTYPE html>                                                                                                                                                                     
@@ -69,5 +73,6 @@ html_content = """
 </html>
 """
 
-HTML(string=html_content).write_pdf('/Users/lokesha/Desktop/PersonalCode/lokesh-portfolio/public/LokeshDas_Resume.pdf')
-print("PDF created successfully!")
+OUTPUT_PDF.parent.mkdir(parents=True, exist_ok=True)
+HTML(string=html_content).write_pdf(str(OUTPUT_PDF))
+print(f"PDF created successfully: {OUTPUT_PDF}")

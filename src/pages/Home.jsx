@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { resumeData } from "../data/resumeData";
 import profile from "../assets/lokesh.jpg";
 
@@ -15,6 +15,25 @@ const focusAreas = [
   "Store releases & OTA",
   "Payments & POS",
 ];
+
+function Reveal({ children, className = "", delay = 0 }) {
+  const reduceMotion = useReducedMotion();
+
+  if (reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export default function Home() {
   return (
@@ -38,12 +57,7 @@ export default function Home() {
       <div className="page-shell relative flex min-h-[calc(100vh-72px)] flex-col justify-center py-14 md:py-16">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
           <div className="max-w-2xl flex-1">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="mb-6 flex items-center gap-4"
-            >
+            <Reveal className="mb-6 flex items-center gap-4">
               <img
                 src={profile}
                 alt={resumeData.name}
@@ -53,57 +67,38 @@ export default function Home() {
                 <p className="section-kicker">Available for opportunities</p>
                 <p className="mt-1 text-sm text-ink-mute">{resumeData.location}</p>
               </div>
-            </motion.div>
+            </Reveal>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.05 }}
-              className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl md:text-6xl"
-            >
-              Hi, I&apos;m {resumeData.name}
-              <span className="text-teal">.</span>
-            </motion.h1>
+            <Reveal delay={0.05}>
+              <h1 className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl md:text-6xl">
+                Hi, I&apos;m {resumeData.name}
+                <span className="text-teal">.</span>
+              </h1>
+            </Reveal>
 
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.12 }}
-              className="font-display mt-4 text-lg font-semibold text-teal-deep md:text-xl"
-            >
-              {resumeData.role}
-            </motion.p>
+            <Reveal delay={0.1}>
+              <p className="font-display mt-4 text-lg font-semibold text-teal-deep md:text-xl">
+                {resumeData.role}
+              </p>
+            </Reveal>
 
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.2 }}
-              className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft md:text-lg"
-            >
-              I build fast, stable web &amp; mobile products people rely on every day —
-              booking platforms, logistics tools, and government-scale apps used by tens
-              of millions. Clean code, sharp UX, and releases that hold up in production.
-            </motion.p>
+            <Reveal delay={0.15}>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft md:text-lg">
+                I build fast, stable web &amp; mobile products people rely on every day —
+                booking platforms, logistics tools, and government-scale apps used by tens
+                of millions. Clean code, sharp UX, and releases that hold up in production.
+              </p>
+            </Reveal>
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.28 }}
-              className="mt-6 flex flex-wrap gap-2"
-            >
+            <Reveal delay={0.2} className="mt-6 flex flex-wrap gap-2">
               {focusAreas.map((item) => (
                 <span key={item} className="skill-chip">
                   {item}
                 </span>
               ))}
-            </motion.div>
+            </Reveal>
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.36 }}
-              className="mt-8 flex flex-wrap gap-3"
-            >
+            <Reveal delay={0.25} className="mt-8 flex flex-wrap gap-3">
               <Link to="/projects" className="btn-spark">
                 View projects
               </Link>
@@ -113,15 +108,10 @@ export default function Home() {
               <Link to="/contact" className="btn-primary">
                 Get in touch
               </Link>
-            </motion.div>
+            </Reveal>
           </div>
 
-          <motion.aside
-            initial={{ opacity: 0, x: 16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-full shrink-0 lg:max-w-xs"
-          >
+          <Reveal delay={0.15} className="w-full shrink-0 lg:max-w-xs">
             <p className="section-kicker mb-5">At a glance</p>
             <ul className="space-y-6 border-t border-line pt-6">
               {highlights.map((item) => (
@@ -137,7 +127,7 @@ export default function Home() {
               Currently shipping at Maventech Labs — React Native, POS integrations,
               and multi-operator booking platforms.
             </p>
-          </motion.aside>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 export const resumeData = {
   name: "Lokesh Das",
-  role: "Full Stack Developer · React · React Native · Java Spring",
+  role: "Full Stack Developer · React · React Native · Next.js · Java Spring",
   location: "Bangalore, Karnataka, 560037",
   email: "lokesh.das.software@gmail.com",
   // "wp" contact details (used on the Contact page). Set these to your real WP/WhatsApp details if different.
@@ -12,11 +12,12 @@ export const resumeData = {
     "Full Stack Developer who thrives on turning complex product ideas into fast, reliable apps people love. Looking for a team where React, React Native, and Java Spring skills can drive real impact — clean architecture, sharp UX, and code that scales.",
 
   summary:
-    "Full Stack Software Developer with 3+ years building high-performance web and mobile products used by 50M+ people. Deep expertise in React.js, React Native, and Java Spring — from pixel-perfect UIs to microservices and AI-powered features. Proven wins: lifting app stability from 93% to 99%, shipping 150+ microapps to production stores, and wiring complex POS, payment, and voice integrations. Comfortable owning the full lifecycle: Redux, REST APIs, Firebase, auth, App Store / Play Console releases, and performance tuning that users feel.",
+    "Full Stack Software Developer with 3+ years building high-performance web and mobile products used by 50M+ people. Deep expertise in React.js, Next.js, React Native, and Java Spring — from pixel-perfect UIs to microservices and AI-powered features. Proven wins: lifting app stability from 93% to 99%, shipping 150+ microapps to production stores, and wiring complex POS, payment, and voice integrations. Comfortable owning the full lifecycle: Redux, REST APIs, Firebase, auth, App Store / Play Console releases, and performance tuning that users feel.",
 
   skills: {
     frontend: [
       "ReactJS",
+      "Next.js",
       "React Native",
       "JavaScript (ES6+)",
       "TypeScript",

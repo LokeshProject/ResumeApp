@@ -1,11 +1,13 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function PageWrapper({ children, className = "" }) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.main
-      initial={{ opacity: 0, y: 16 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: reduceMotion ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] }}
       className={`min-h-[calc(100vh-72px)] pb-16 pt-8 md:pt-12 ${className}`}
     >
       {children}

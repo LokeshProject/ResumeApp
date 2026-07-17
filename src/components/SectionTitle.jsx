@@ -1,6 +1,23 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function SectionTitle({ title, subtitle, kicker }) {
+  const reduceMotion = useReducedMotion();
+
+  if (reduceMotion) {
+    return (
+      <div className="mb-10 max-w-2xl">
+        {kicker ? <p className="section-kicker mb-3">{kicker}</p> : null}
+        <h1 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+          {title}
+        </h1>
+        {subtitle ? (
+          <p className="mt-3 text-lg leading-relaxed text-ink-mute">{subtitle}</p>
+        ) : null}
+        <div className="mt-6 h-[3px] w-14 bg-teal" />
+      </div>
+    );
+  }
+
   return (
     <motion.div
       className="mb-10 max-w-2xl"

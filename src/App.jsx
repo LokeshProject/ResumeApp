@@ -1,3 +1,4 @@
+import { MotionConfig } from "framer-motion";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -13,6 +14,7 @@ import Contact from "./pages/Contact";
 
 export default function App() {
   return (
+    <MotionConfig reducedMotion="user">
     <BrowserRouter>
       <div className="flex min-h-screen flex-col">
         <Navbar />
@@ -31,5 +33,6 @@ export default function App() {
         <Footer />
       </div>
     </BrowserRouter>
+    </MotionConfig>
   );
 }
