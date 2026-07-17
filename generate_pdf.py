@@ -1,7 +1,7 @@
 from weasyprint import HTML, CSS
 
 html_content = """
-<!DOCTYPE html>
+<!DOCTYPE html>                                                                                                                                                                     
 <html>
 <head>
     <style>
